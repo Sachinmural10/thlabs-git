@@ -1,0 +1,14 @@
+---
+- name: looping
+  hosts: all
+  become: yes
+  tasks:
+   - name: create a log file and capture
+     ansible.builtin.user: 
+      name: "{{item}}"
+      state: present
+     loop: 
+      - testuser1
+      - testuser2
+      - sachin
+      - foo
